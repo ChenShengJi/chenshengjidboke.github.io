@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <script type="text/javascript" src="js/lunbo.js"></script> -->
+	<title>轮播图</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding:0;
+		}
+        .lunBo{
+            margin:100px auto;
+            position:relative;
+            /*border-radius:15px;*/
+            overflow:hidden;
+            width: 400px;
+            height: 500px;
+        }
+        .lunBo ul li{
+            width: 400px;
+            height: 500px;
+        }
+        .lunBo ul li div{
+            width: 400px;
+            height: 250px;
+           /* justify-content: center;
+            align-items: center;*/
+        }
+        .div1 p:nth-child(1){
+             font-weight: bold;
+        }
+      /*  .lunBo ul li div img{
+            width:400px;
+            height:300px;
+        }*/
+       /* .lunBoul li div p{
+            text-align: center;
+        }*/
+       /* .lunBo ul li img{
+         	width:400px;
+         	height:300px;
+        }*/
+         .lunBo ul{
+         	height:250px;
+         	position:absolute;
+        }
+        .lunBo ul li{
+        	float:left;
+        	list-style:none;
+        }
+        .other{
+        	position:absolute;
+        	top:110px;
+        	width:100%;
+        }
+        .left{
+        	position: absolute;
+         	float:left;
+            z-index: 999;
+            height: 100px;
+            width: 100px;
+            text-decoration:none;
+            font-size: 50px;
+            color: pink;
+            margin-top: -20px;
+         }
+        .right{
+        	position: absolute;
+        	float:right;
+        	z-index: 999;
+            height: 100px;
+            width: 100px;
+            text-decoration:none;
+            font-size: 50px;
+            color: pink;
+            margin-top: -20px;
+            right: -65px;
+        }
+        .point{
+         	width:100px;
+         	margin:90px auto;
+         }
+         span{
+         	width:10px;
+         	height:10px;
+         	/*border-radius:5px;*/
+         	background:#333;
+         	cursor:pointer;
+         	float:left;
+         	margin:0 5px;
+         	position:relative;
+         	z-index:15;
+         }
+         .yellow{
+         	background:yellow;
+         }
+         .div2 img{
+            width: 400px;
+            height: 250px;
+         }
+	</style>
+</head>
+<body>
+	<div class="lunBo" id="LunBo">
+	    <div class="other" id="Other">
+	        <div class="direction">
+	            <a href="javascript:;" class="left"><</a>
+	            <a href="javascript:;" class="right">></a>
+	        </div>
+	        <div class="point">
+	            <span class="yellow"></span>
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	        </div>
+	    </div>
+	    <ul>
+	        <li>
+                <div class="div2"><img src="img/01.jpg"></div>
+                <div class="div1">
+                    <p>1111111111111</p>
+                    <p>1111111111111</p>
+                </div>   
+            </li>
+             <li>
+                <div class="div2"><img src="img/02.jpg"></div>
+                <div class="div1">
+                    <p>2222222222222</p>
+                    <p>2222222222222</p>
+                </div>   
+            </li>
+             <li>
+                <div class="div2"><img src="img/03.jpg"></div>
+                <div class="div1">
+                    <p>3333333333333</p>
+                    <p>3333333333333</p>
+                </div>   
+            </li>
+             <li>
+                <div class="div2"><img src="img/04.jpg"></div>
+                <div class="div1">
+                    <p>4444444444444</p>
+                    <p>4444444444444</p>
+                </div>   
+            </li>
+             <li>
+                <div class="div2"><img src="img/05.jpg"></div>
+                <div class="div1">
+                    <p>5555555555555</p>
+                    <p>5555555555555</p>
+                </div>   
+            </li>
+	    </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遮罩层课堂案例讲解</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#content {
+			width: 400px;
+			height: 400px;
+			background-color: red;
+			margin: 200px 0 0 600px;
+			overflow: hidden;
+			position: relative;
+		}
+		img {
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			top: 0;
+			left: -400px;
+		}
+		@keyframes move {
+			to {
+				left: 0;
+				top: 0;
+			}
+		}
+		@keyframes move1 {
+			from {
+				left: 0;
+				top: 0;
+			}
+			to {
+				top:-400px;
+				left:0;
+			}
+		}
+		@keyframes move2 {
+			from {
+				left: 0;
+				top: 0;
+			}
+			to {
+				top:0;
+				left:400px;
+			}
+		}
+		@keyframes move3 {
+			from {
+				left: 0;
+				top: 0;
+			}
+			to {
+				top:400px;
+				left:0;
+			}
+		}
+		@keyframes move4 {
+			from {
+				left: 0;
+				top: 0;
+			}
+			to {
+				top:0;
+				left:-400px;
+			}
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="content"><img id="img" src="img/01.jpg" alt="图片显示错误"></div>
+<script>
+	var content = document.getElementById('content');
+	var img = document.getElementById('img');
+	content.onmouseenter = function (e) {
+		var re = window.event || e;
+		var width = content.offsetWidth;
+		var height = content.offsetHeight;
+		var x = (re.pageX - content.offsetLeft - (width / 2)) * (width > height ? (height / width) : 1);
+		var y = (re.pageY - content.offsetTop - (height / 2)) * (height > width ? (width / height) : 1);
+		var direction = Math.round((((Math.atan2(y,x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+		switch (direction) {
+			case 0 :
+					img.style.cssText = 'top:-400px;left:0';
+					break;
+			case 1 : 
+					img.style.cssText = 'top:0;left:400px';
+					break;
+			case 2 : 
+					img.style.cssText = 'top:400px;left:0';
+					break;
+			case 3 :
+					img.style.cssText = 'top:0;left:-400px'; 
+					break;
+		}
+		img.style.animation = 'move 0.5s forwards';
+	}
+	
+	content.onmouseleave = function (e) {
+		var re = window.event || e;
+		var width = content.offsetWidth;
+		var height = content.offsetHeight;
+		var x = (re.pageX - content.offsetLeft - (width / 2)) * (width > height ? (height / width) : 1);
+		var y = (re.pageY - content.offsetTop - (height / 2)) * (height > width ? (width / height) : 1);
+		var direction = Math.round((((Math.atan2(y,x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+		switch (direction) {
+			case 0 :
+					img.style.animation = 'move1 0.5s forwards';
+					break;
+			case 1 : 
+					img.style.animation = 'move2 0.5s forwards';
+					break;
+			case 2 : 
+					img.style.animation = 'move3 0.5s forwards';
+					break;
+			case 3 :
+					img.style.animation = 'move4 0.5s forwards';
+					break;
+		}
+	}
+</script>
+</body>
+
+</html>

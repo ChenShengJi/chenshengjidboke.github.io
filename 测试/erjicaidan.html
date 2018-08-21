@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div>div {width: 215px;height: 200px;background-color: firebrick;display: none;}
+        button:hover {color: white;background-color: fuchsia;}
+        #div1 {display: block;}
+    </style>
+</head>
+<body>
+    <div class="div" id="div">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <div id="div1">我是div一</div>
+        <div>我是div二</div> 
+        <div>我是div三</div>
+        <div>我是div四</div>
+    </div>
+    <script>
+        var odiv = document.getElementById('div');          
+        var obtn = document.getElementsByTagName('button'); 
+        var xdiv = odiv.getElementsByTagName('div');        
+        for(var i=0;i<obtn.length;i++){                                          
+                obtn[i].index=i;                            
+                obtn[i].onmouseover=function(){             
+                    for(var k=0;k<obtn.length;k++){
+                        xdiv[k].style.display ='none';
+                        obtn[k].style.background='red';
+                    }
+                    xdiv[this.index].style.display ='block';
+                    obtn[this.index].style.background='yellow';
+                    obtn[this.index].style.color='black';
+                }
+            }
+    </script>
+</body>
+</html>
