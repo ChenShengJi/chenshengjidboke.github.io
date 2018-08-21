@@ -3,6 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style type="text/css">
+		body{
+			background-color: rgba(0,0,0,1);
+		}
+		h1{
+			color: white;
+		}
+		h2{
+			color: white;
+		}
+	</style>
+	<script type="text/javascript" src="canvas-particle.js"></script>
 	<script type="text/javascript">
 		window.onload=function(){
 			alert("欢迎来到我的主页");
@@ -10,12 +22,37 @@
 			btn.onclick=function(){
 				location.href="测试/111.html";
 			}
+
+
+			var config = {
+            vx: 4,  //小球x轴速度,正为右，负为左
+            vy: 4,  //小球y轴速度
+            height: 2,  //小球高宽，其实为正方形，所以不宜太大
+            width: 2,
+            count: 200,   //点个数
+            color: "121, 162, 185",   //点颜色
+            stroke: "130,255,255",    //线条颜色
+            dist: 6000,   //点吸附距离
+            e_dist: 20000,  //鼠标吸附加速距离
+            max_conn: 10  //点到点最大连接数
+        }
+        //调用
+        CanvasParticle(config);
+         /*720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
+		      为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等*/
+		    getRem(1300,20);
+		window.onresize = function(){
+		    getRem(1300,20)
+		    //自己定义的屏幕大小和字体大小
+		};
 		}
 	</script>
 </head>
 <body>
-	<h1>Hello Word</h1>
+	<div id="mydiv" class="mydiv">
+		<h1>Hello Word</h1>
 	<h2>hahahah</h2>
 	<button id="btn">点我</button>
+	</div>
 </body>
 </html>
