@@ -27,8 +27,8 @@ var CanvasParticle = (function(){
 				height: canvasConfig.height || 2,
 				width: canvasConfig.width || 2,
 				count: canvasConfig.count || 100,
-				color: canvasConfig.color || "255, 192, 203",
-				stroke: canvasConfig.stroke || "255, 192, 203",
+				color: canvasConfig.color || "0,0,255",
+				stroke: canvasConfig.stroke || "0,0,255",
 				dist: canvasConfig.dist || 6000,
 				e_dist: canvasConfig.e_dist || 20000,
 				max_conn: 10
