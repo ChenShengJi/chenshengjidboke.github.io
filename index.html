@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<script src="js/Aui-core-1.42-min.js" language="javascript" type="text/javascript"></script>
 		<script type="text/javascript" src="js/sport.js"></script>
+		<script src="js/jquery-1.11.3.js" type="text/javascript"></script>
 		<style type="text/css">
 		body{
 			
@@ -68,7 +69,53 @@
 	</style>
 	<script type="text/javascript">
 		window.onload=function(){
-			alert("欢迎来到我的主页");
+
+
+            (function($){
+				$.fn.chajian=function(options){
+					var defaults={
+						key_val:[38,40],
+						type:'keydown',
+						types:'mousemove',
+						targets:'.wrap',
+						shape:'square'		//或者'circular'
+					}
+					var set=$.extend({},defaults,options)
+					if(set.shape=='circular'){
+						$(set.targets).children('div').css('border-radius','50%')
+					}
+					$(set.targets).on(set.types,function(e){
+						var x=e.pageX-$(this).offset().left-$(this).children('div').width()/2
+						var y=e.pageY-$(this).offset().top-$(this).children('div').height()/2
+						if(x<0)x=0;
+						if(y<0)y=0;
+						if(x>$(this).width()-$(this).children('div').width())x=$(this).width()-$(this).children('div').width()
+						if(y>$(this).height()-$(this).children('div').height())y=$(this).height()-$(this).children('div').height()
+						$(this).children('div').css({top:y,left:x,cursor:'none'}).show()
+						$(this).find('div img').css({top:-y,left:-x})
+						var that=$(this);
+						var sum=$(this).children('div').width();
+						$(document).on(set.type,function(e){
+							if(e.keyCode==set.key_val[0]){
+								sum++;
+								that.children('div').width(sum);
+								that.children('div').height(sum);
+							}
+							if(e.keyCode==set.key_val[1]){
+								sum--;
+								that.children('div').width(sum);
+								that.children('div').height(sum);
+							}
+						})
+					}).trigger(set.types)
+				}
+				$('body').chajian({
+
+				})
+			}($))
+
+
+
 			var btn=document.getElementById('btn');
 			btn.onclick=function(){
 				location.href="1.html";
@@ -690,6 +737,12 @@
 		    <h2 class="h22">我慧姐是真的美啊</h2>
 	<button id="btn">点我</button>
 	<dl id="stage"></dl>
+	<div class="wrap">
+		<img src="images/04.jpg" alt="" class="blur">
+		<div class="box">
+			<img src="images/04.jpg" alt="" class="img">
+		</div>
+		</div>
 	</div>
 
 </body>
